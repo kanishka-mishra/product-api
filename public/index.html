@@ -139,6 +139,11 @@
             const dateOfSaleInput = document.getElementById('dateOfSale');
             dateOfSaleInput.disabled = !soldCheckbox.checked;
         }
+
+        document.getElementById('productForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            this.reset();
+        });
     </script>
 </body>
 </html>
