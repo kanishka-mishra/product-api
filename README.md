@@ -25,11 +25,14 @@ This project is a full-stack application for managing and analyzing product data
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/kanishka-mishra/product-api.git
-   cd product-api
+
    ```
 
 2. **Setup:**
-
+   - Navigate to the backend folder:
+     ```bash
+      cd product-api
+     ```
    - Install dependencies:
      ```bash
      npm install
