@@ -13,7 +13,7 @@ document.getElementById('productForm').addEventListener('submit', async (event) 
     };
 
     try {
-        const response = await fetch('http://localhost:3000/products', {
+        const response = await fetch('http://13.233.147.191:9000/products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -59,7 +59,7 @@ async function applyFilters() {
     if (priceMax) query += `priceMax=${priceMax}&`;
 
     try {
-        const response = await fetch(`http://localhost:3000/products${query}`);
+        const response = await fetch(`http://13.233.147.191:9000/products${query}`);
         if (response.ok) {
             const products = await response.json();
             displayFilteredProducts(products);
@@ -95,7 +95,7 @@ async function searchProducts() {
     const searchTerm = document.getElementById('searchBar').value;
 
     try {
-        const response = await fetch(`http://localhost:3000/products?search=${searchTerm}`);
+        const response = await fetch(`http://13.233.147.191:9000/products?search=${searchTerm}`);
         if (response.ok) {
             const products = await response.json();
             displayFilteredProducts(products);
