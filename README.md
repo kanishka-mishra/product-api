@@ -53,6 +53,47 @@ This project is a full-stack application for managing and analyzing product data
 
 ---
 
+## Deployment Process
+
+This project is deployed using **Amazon EC2** service. Below are the steps followed for deployment:
+
+### Steps:
+1. **Setup an EC2 Instance:**
+   - Launch an EC2 instance using the AWS Management Console.
+   - Choose an appropriate instance type (e.g., t2.micro for small applications).
+   - Configure security groups to allow HTTP, HTTPS, and SSH access.
+
+2. **Install Required Software:**
+   - Connect to the instance using SSH:
+     ```bash
+     ssh -i <your-key-file.pem> ec2-user@<your-instance-public-ip>
+     ```
+   - Update the system packages:
+     ```bash
+     sudo yum update -y
+     ```
+   - Install Node.js, Python, or other required software:
+     ```bash
+     sudo yum install nodejs npm python3
+     ```
+
+3. **Deploy the Application:**
+   - Clone the project repository on the EC2 instance:
+     ```bash
+     git clone <repository-url>
+     cd <repository-folder>
+     ```
+   - Install backend and frontend dependencies as described in the local setup instructions.
+   - Configure environment variables if needed.
+
+4. **Start the Application:**
+    - node server.js
+
+5. **Set Up Domain and SSL:**
+   - Configure a domain name and set up SSL using AWS Certificate Manager or Let's Encrypt.
+
+---
+
 ## Screenshots
 1. **Product Table**
    ![Product Table](#)
