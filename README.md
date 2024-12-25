@@ -107,9 +107,11 @@ This project is deployed using **Amazon EC2** service. Below are the steps follo
    ---
 
 4. **Graphs**
-   ![Graphs](#)
-
----
+   ---
+   ![UI preview](screenshots/pic4.png)
+   ---
+   ![UI preview](screenshots/pic5.png)
+   ---
 
 ## Project Structure
 
