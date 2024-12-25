@@ -186,5 +186,25 @@
     </div>
 
     <script src="product-details.js"></script>
+    <script>
+        function displayProductDetails(products) {
+            const productDetails = document.getElementById('productDetails');
+            productDetails.innerHTML = ''; // Clear previous results
+
+            products.forEach(product => {
+                const productItem = document.createElement('div');
+                productItem.className = 'product-item';
+                productItem.innerHTML = `
+                    <img src="${product.Image}" alt="Product Image">
+                    <h3>${product.Title}</h3>
+                    <p>Price: $${product.Price}</p>
+                    <p>Sold: ${product.Sold ? 'Yes' : 'No'}</p>
+                    <p class="${product.IsSale ? 'sale-true' : 'sale-false'}">${product.IsSale ? 'On Sale' : 'Not on Sale'}</p>
+                    <p>Date of Purchase: ${product.DateOfSale ? new Date(product.DateOfSale).toLocaleDateString() : 'N/A'}</p>
+                `;
+                productDetails.appendChild(productItem);
+            });
+        }
+    </script>
 </body>
 </html>

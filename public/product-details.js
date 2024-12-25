@@ -38,8 +38,9 @@ async function applyFilters() {
     const priceMax = document.getElementById('filterPriceMax').value;
 
     let query = '?';
+
     if (category) query += `category=${category}&`;
-    if (sold) query += `sold=${sold}&`;
+    if (sold) query += `sold=${sold === 'Yes'}&`;
     if (priceMin) query += `priceMin=${priceMin}&`;
     if (priceMax) query += `priceMax=${priceMax}&`;
 
