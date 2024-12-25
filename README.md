@@ -96,12 +96,17 @@ This project is deployed using **Amazon EC2** service. Below are the steps follo
 
 ## Screenshots
 1. **Product Table**
-   ![Product Table](#)
-
+   ---
+   ![UI preview](screenshots/pic1.png)
+   ---
+   ![UI preview](screenshots/pic2.png)
+   ---
 2. **Filters and Search**
-   ![Filters](#)
+   ---
+   ![UI preview](screenshots/pic3.png)
+   ---
 
-3. **Graphs**
+4. **Graphs**
    ![Graphs](#)
 
 ---
