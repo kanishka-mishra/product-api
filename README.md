@@ -105,8 +105,11 @@ This project is deployed using **Amazon EC2** service. Below are the steps follo
    ---
    ![UI preview](screenshots/pic3.png)
    ---
-
-4. **Graphs**
+3. **Product List**
+   ---
+   ![UI preview](screenshots/pic6.png)
+   ---
+5. **Graphs**
    ---
    ![UI preview](screenshots/pic4.png)
    ---
