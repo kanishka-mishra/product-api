@@ -43,13 +43,13 @@ This project is a full-stack application for managing and analyzing product data
      ```
 
 4. **Access the Application:**
-   - Open your browser and visit `http://localhost:9000` for the frontend.
+   - Open your browser and visit `http://13.233.147.191:9000` for the frontend.
 
 ---
 
 ## Deployed Link
-- Access the live application here: http://localhost:9000/product-details.html
-- mongodb json data: http://localhost:9000/products
+- Access the live application here: http://13.233.147.191:9000/product-details.html
+- mongodb json data: http://13.233.147.191:9000/products
 
 ---
 

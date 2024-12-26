@@ -1,6 +1,6 @@
 async function fetchProductDetails() {
     try {
-        const response = await fetch('http://localhost:9000/products');
+        const response = await fetch('http://13.233.147.191:9000/products');
         if (response.ok) {
             const products = await response.json();
             displayProductDetails(products);
@@ -45,7 +45,7 @@ async function applyFilters() {
     if (priceMax) query += `priceMax=${priceMax}&`;
 
     try {
-        const response = await fetch(`http://localhost:9000/products${query}`);
+        const response = await fetch(`http://13.233.147.191:9000/products${query}`);
         if (response.ok) {
             const products = await response.json();
             displayProductDetails(products);
@@ -62,7 +62,7 @@ async function searchProducts() {
     const searchTerm = document.getElementById('searchBar').value;
 
     try {
-        const response = await fetch(`http://localhost:9000/products?search=${searchTerm}`);
+        const response = await fetch(`http://13.233.147.191:9000/products?search=${searchTerm}`);
         if (response.ok) {
             const products = await response.json();
             const filteredProducts = products.filter(product => 
