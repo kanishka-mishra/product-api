@@ -48,8 +48,8 @@ This project is a full-stack application for managing and analyzing product data
 ---
 
 ## Deployed Link
-- Access the live application here: http://13.233.147.191:9000/product-details.html
-- mongodb json data: http://13.233.147.191:9000/products
+- Access the live application here: http://localhost:9000/product-details.html
+- mongodb json data: http://localhost:9000/products
 
 ---
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
+    <title>Product List</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -16,12 +16,12 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background-color: #007bff; /* Blue */
+            background-color: #007bff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .header h1 {
             margin: 0;
-            color: white; /* Ensure the text is readable on blue background */
+            color: white;
         }
         .button-container {
             display: flex;
@@ -46,44 +46,31 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
-        .product-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .product-item {
-            background-color: #f9f9f9;
+        table, th, td {
             border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-            width: calc(33.333% - 20px);
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
-        .product-item img {
-            max-width: 100%;
-            border-radius: 8px;
+        th, td {
+            padding: 12px;
+            text-align: left;
         }
-        .product-item h3 {
-            margin: 10px 0;
-            font-size: 18px;
-            text-align: center;
+        th {
+            background-color: #007bff;
+            color: white;
         }
-        .product-item p {
-            margin: 5px 0;
-            font-size: 16px;
-            text-align: center;
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
         }
-        .sale-true {
-            color: green;
-        }
-        .sale-false {
-            color: red;
+        tr:hover {
+            background-color: #ddd;
         }
         .styled-button {
-            background-color: #4CAF50; /* Green */
+            background-color: #4CAF50;
             border: none;
             color: white;
             padding: 10px 20px;
@@ -101,35 +88,24 @@
             color: black;
             border: 2px solid #4CAF50;
         }
-        @media (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
-            .product-item {
-                width: calc(100% - 20px);
-            }
-        }
         .styled-form {
             background-color: #ffffff;
-            padding: 20px; /* Decreased padding */
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
-            width: 80%; /* Reduced width */
-            margin-left: 0; /* Align form to the left side */
-            margin-right: auto; /* Ensures the right margin remains auto */
         }
         .styled-form label {
-            font-size: 14px; /* Reduced font size */
-            margin-bottom: 5px; /* Reduced space for better alignment */
+            font-size: 14px;
+            margin-bottom: 5px;
             display: block;
         }
         .styled-select, .styled-input {
             width: 100%;
-            padding: 10px; /* Reduced padding */
-            margin: 8px 0; /* Adjusted margin for tighter spacing */
+            padding: 10px;
+            margin: 8px 0;
             box-sizing: border-box;
-            border: 1px solid #ccc; /* Slightly thinner border */
+            border: 1px solid #ccc;
             border-radius: 4px;
             transition: 0.3s;
         }
@@ -141,12 +117,11 @@
 </head>
 <body>
     <div class="header">
-        <h1>PRODUCT DETAILS</h1>
+        <h1>Product List</h1>
         <div class="button-container">
             <button class="styled-button" onclick="window.location.href='index.html'">Create Product</button>
             <button class="styled-button" onclick="window.location.href='analysis.html'">View Analysis</button>
-            <button class="styled-button" onclick="window.location.href='product-list.html'">Products List</button>
-         
+            <button class="styled-button" onclick="window.location.href='product-details.html'">Product Details</button>
         </div>
     </div>
     <div class="container">
@@ -183,43 +158,103 @@
         <input type="text" id="searchBar" class="styled-input" placeholder="Search by Title" oninput="searchProducts()" style="padding: 10px; border-radius: 8px; border: 1px solid #ccc; transition: 0.3s;">
         <br><br>
 
-        <h2>Products</h2>
-        <div class="product-list" id="productDetails"></div>
+        <h2>Product List</h2>
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th style="text-align: center;">Image</th>
+                    <th style="text-align: center;">Title</th>
+                    <th style="text-align: center;">Price</th>
+                    <th style="text-align: center;">Sold</th>
+                    <th style="text-align: center;">On Sale</th>
+                    <th style="text-align: center;">Date of Purchase</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Product rows will be inserted here -->
+            </tbody>
+        </table>
     </div>
 
-    <script src="product-details.js"></script>
     <script>
-        function displayProductDetails(products) {
-            const productDetails = document.getElementById('productDetails');
-            productDetails.innerHTML = ''; // Clear previous results
-
-            products.forEach(product => {
-                const productItem = document.createElement('div');
-                productItem.className = 'product-item';
-                productItem.innerHTML = `
-                    <img src="${product.Image}" alt="Product Image">
-                    <h3>${product.Title}</h3>
-                    <p>Price: $${product.Price}</p>
-                    <p>Sold: ${product.Sold ? 'Yes' : 'No'}</p>
-                    <p class="${product.IsSale ? 'sale-true' : 'sale-false'}">${product.IsSale ? 'On Sale' : 'Not on Sale'}</p>
-                    <p>Date of Purchase: ${product.DateOfSale ? new Date(product.DateOfSale).toLocaleDateString() : 'N/A'}</p>
-                `;
-                productDetails.appendChild(productItem);
-            });
-        }
+        window.onload = fetchAllProducts;
 
         async function fetchAllProducts() {
             try {
                 const response = await fetch('http://localhost:9000/products');
                 if (response.ok) {
                     const products = await response.json();
-                    displayProductDetails(products);
+                    displayProductTable(products);
                 } else {
                     alert('Failed to fetch products.');
                 }
             } catch (error) {
                 console.error('Error:', error);
                 alert('An error occurred while fetching products.');
+            }
+        }
+
+        function displayProductTable(products) {
+            const productTableBody = document.getElementById('productTable').getElementsByTagName('tbody')[0];
+            productTableBody.innerHTML = ''; // Clear previous results
+
+            products.forEach(product => {
+                const row = productTableBody.insertRow();
+                row.innerHTML = `
+                    <td><img src="${product.Image}" alt="Product Image" style="max-width: 100px; border-radius: 8px;"></td>
+                    <td>${product.Title}</td>
+                    <td>$${product.Price}</td>
+                    <td>${product.Sold ? 'Yes' : 'No'}</td>
+                    <td class="${product.IsSale ? 'sale-true' : 'sale-false'}">${product.IsSale ? 'On Sale' : 'Not on Sale'}</td>
+                    <td>${product.DateOfSale ? new Date(product.DateOfSale).toLocaleDateString() : 'N/A'}</td>
+                `;
+            });
+        }
+
+        async function applyFilters() {
+            const category = document.getElementById('filterCategory').value;
+            const sold = document.getElementById('filterSold').value;
+            const priceMin = document.getElementById('filterPriceMin').value;
+            const priceMax = document.getElementById('filterPriceMax').value;
+
+            let query = '?';
+
+            if (category) query += `category=${category}&`;
+            if (sold) query += `sold=${sold === 'Yes'}&`;
+            if (priceMin) query += `priceMin=${priceMin}&`;
+            if (priceMax) query += `priceMax=${priceMax}&`;
+
+            try {
+                const response = await fetch(`http://localhost:9000/products${query}`);
+                if (response.ok) {
+                    const products = await response.json();
+                    displayProductTable(products);
+                } else {
+                    alert('Failed to apply filters.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while applying filters.');
+            }
+        }
+
+        async function searchProducts() {
+            const searchTerm = document.getElementById('searchBar').value.toLowerCase();
+
+            try {
+                const response = await fetch('http://localhost:9000/products');
+                if (response.ok) {
+                    const products = await response.json();
+                    const filteredProducts = products.filter(product => 
+                        product.Title.toLowerCase().includes(searchTerm)
+                    );
+                    displayProductTable(filteredProducts);
+                } else {
+                    alert('Failed to search products.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while searching products.');
             }
         }
     </script>

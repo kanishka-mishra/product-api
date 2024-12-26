@@ -63,7 +63,7 @@
     <script>
         async function fetchSalesData() {
             try {
-                const response = await fetch('http://13.233.147.191:9000/products');
+                const response = await fetch('http://localhost:9000/products');
                 if (response.ok) {
                     const products = await response.json();
                     generateSalesData(products);
